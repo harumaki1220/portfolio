@@ -34,28 +34,42 @@ export default function Home() {
       <main>
         {/* Hero Section */}
         <section className="py-20 md:py-32 container mx-auto px-4 text-center">
-          <div className="text-xl md:text-2xl text-slate-700 font-medium mb-6">
-            Haruma Kusunoki
+          <div className="inline-block p-2 px-4 rounded-full bg-blue-50 text-blue-700 text-sm font-semibold mb-6">
+            INIAD Student / Web Developer
           </div>
 
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-10">
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 text-slate-900">
+            Building Digital{" "}
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-cyan-500">
+              Experiences
+            </span>
+          </h1>
+
+          <div className="text-xl md:text-2xl text-slate-700 font-medium mb-8">
+            楠 悠真
+            <span className="text-slate-400 text-lg">(harumaki1220)</span>
+          </div>
+
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+            東洋大学 情報連携学部 (INIAD) 1年。
+            <br className="block my-2" />
             モダンなWeb技術を学び、ユーザー体験を重視した開発を目指しています。
             <br className="hidden md:block" />
-            GitHubでは <b>matcha(harumaki1220)</b>
+            GitHubでは <b>matcha(harumaki1220)</b>{" "}
             として活動し、日々コードを書いています。
           </p>
 
           <div className="flex justify-center gap-4">
             <Link
               href="#contact"
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition"
+              className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition shadow-lg hover:shadow-xl"
             >
               Contact Me
             </Link>
             <Link
               href="https://github.com/harumaki1220"
               target="_blank"
-              className="border border-slate-300 bg-white px-6 py-3 rounded-lg font-medium hover:bg-slate-50 transition flex items-center gap-2"
+              className="border border-slate-300 bg-white px-6 py-3 rounded-lg font-medium hover:bg-slate-50 transition flex items-center gap-2 shadow-sm hover:shadow-md"
             >
               <Github size={20} /> GitHub: harumaki1220
             </Link>
