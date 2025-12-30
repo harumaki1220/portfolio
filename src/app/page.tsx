@@ -142,13 +142,13 @@ export default function Home() {
                 <div className="p-6 flex-1 flex flex-col">
                   <div className="flex justify-between items-start mb-2">
                     <h3 className="text-xl font-bold">Are you a robot?</h3>
-                    <span className="text-[10px] bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full border border-yellow-200 font-medium">
-                      WIP
+                    <span className="text-[10px] bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full border border-blue-200 font-medium">
+                      技育CAMP Vol.16
                     </span>
                   </div>
                   <p className="text-slate-600 mb-4 text-sm flex-1">
-                    初めてのハッカソンで製作中のプロジェクト。
-                    逆reCAPTCHA（自分がロボットであることを判別する）アプリをチームで開発しています。
+                    「技育CAMP2025 ハッカソン Vol.16」にて開発。
+                    自分がロボットであることを判別する「逆reCAPTCHA」というコンセプトのアプリを、自分含めた4人のチームで開発しました。
                   </p>
                   <div className="flex gap-2 mb-4 flex-wrap">
                     <span className="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded">
