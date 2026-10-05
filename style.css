@@ -307,3 +307,93 @@ button {
     grid-template-rows: 35px 1fr 40%;
   }
 }
+
+.status-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.status-link:hover {
+  text-decoration: underline;
+}
+
+/* ---------- 普通のページ ---------- */
+
+.home {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 96px 16px 64px;
+  display: grid;
+  gap: 48px;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.home-name {
+  margin: 0;
+  color: var(--fg-active);
+  font-size: clamp(2.25rem, 8vw, 3rem);
+  line-height: 1.2;
+}
+
+.home-sub {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 14px;
+}
+
+.home-bio {
+  margin: 0;
+  display: grid;
+}
+
+.home-heading {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.home-skills,
+.home-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  font-family: var(--mono);
+  font-size: 14px;
+}
+
+.home-links a {
+  color: var(--fg);
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 4px;
+}
+
+.home-links a:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
+.open-editor {
+  justify-self: start;
+  padding: 10px 20px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--fg-active);
+  font-family: var(--mono);
+  font-size: 14px;
+  text-decoration: none;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.open-editor:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}

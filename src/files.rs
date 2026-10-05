@@ -1,11 +1,15 @@
-//! エディタで開けるファイルの一覧。中身は content/ 以下に置いて、ビルド時に埋め込む。
+use crate::profile::{BIO, LINKS, NAME, NAME_JA, SKILLS};
 
 pub struct File {
     pub name: &'static str,
-    pub content: &'static str,
+    render: fn() -> String,
 }
 
 impl File {
+    pub fn content(&self) -> String {
+        (self.render)()
+    }
+
     pub fn language(&self) -> &'static str {
         match self.name.rsplit_once('.').map(|(_, ext)| ext) {
             Some("md") => "Markdown",
@@ -20,14 +24,36 @@ impl File {
 pub const FILES: &[File] = &[
     File {
         name: "about.md",
-        content: include_str!("../content/about.md"),
+        render: about_md,
     },
     File {
         name: "skills.toml",
-        content: include_str!("../content/skills.toml"),
+        render: skills_toml,
     },
     File {
         name: "links.json",
-        content: include_str!("../content/links.json"),
+        render: links_json,
     },
 ];
+
+fn about_md() -> String {
+    format!("# {NAME_JA} ({NAME})\n\n{}\n", BIO.join("\n"))
+}
+
+fn skills_toml() -> String {
+    let skills = SKILLS
+        .iter()
+        .map(|skill| format!("\"{skill}\""))
+        .collect::<Vec<_>>()
+        .join(", ");
+    format!("[languages]\nmain = [{skills}]\n")
+}
+
+fn links_json() -> String {
+    let entries = LINKS
+        .iter()
+        .map(|(label, href)| format!("  \"{label}\": \"{href}\""))
+        .collect::<Vec<_>>()
+        .join(",\n");
+    format!("{{\n{entries}\n}}\n")
+}

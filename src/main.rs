@@ -1,7 +1,10 @@
 mod app;
 mod commands;
 mod files;
+mod home;
+mod profile;
 mod terminal;
+mod workbench;
 
 use leptos::prelude::*;
 
