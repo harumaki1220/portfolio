@@ -1,14 +1,13 @@
 use leptos::prelude::*;
 
-use crate::profile::{BIO, HANDLE, LINKS, NAME, NAME_JA, SKILLS};
+use crate::profile::{BIO, LINKS, NAME, SKILLS};
 
 #[component]
 pub fn Home() -> impl IntoView {
     view! {
         <main class="home">
             <header>
-                <h1 class="home-name">{NAME_JA}</h1>
-                <p class="home-sub">{NAME} " · @" {HANDLE}</p>
+                <h1 class="home-name">{NAME}</h1>
             </header>
 
             <p class="home-bio">

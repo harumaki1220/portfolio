@@ -1,6 +1,4 @@
-pub const NAME: &str = "Haruma Kusunoki";
-pub const NAME_JA: &str = "楠 悠真";
-pub const HANDLE: &str = "harumaki1220";
+pub const NAME: &str = "matcha";
 
 pub const BIO: &[&str] = &[
     "東洋大学 情報連携学部 (INIAD) 2年。",
