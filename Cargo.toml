@@ -6,6 +6,7 @@ edition = "2024"
 [dependencies]
 leptos = { version = "0.8", features = ["csr"] }
 console_error_panic_hook = "0.1"
+web-sys = { version = "0.3", features = ["Storage"] }
 
 [profile.release]
 opt-level = "z"
