@@ -40,10 +40,6 @@ pub fn Home() -> impl IntoView {
                         .collect_view()}
                 </ul>
             </section>
-
-            <a class="open-editor" href="#editor">
-                "エディタで開く →"
-            </a>
         </main>
     }
 }
