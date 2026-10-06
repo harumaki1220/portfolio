@@ -11,3 +11,9 @@ pub const LINKS: &[(&str, &str)] = &[
     ("GitHub", "https://github.com/harumaki1220"),
     ("X", "https://x.com/matcha445_dev"),
 ];
+
+/// GitHub のアイコンをそのまま表示する（画像をリポジトリに入れないため）
+pub const ICON_URL: &str = "https://github.com/harumaki1220.png?size=256";
+
+/// アイコンを描いてくれた人（表示名, リンク）
+pub const ICON_CREDIT: (&str, &str) = ("@yng_hoti", "https://x.com/yng_hoti");

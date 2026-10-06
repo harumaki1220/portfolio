@@ -1,12 +1,13 @@
 use leptos::prelude::*;
 
-use crate::profile::{BIO, LINKS, NAME, SKILLS};
+use crate::profile::{BIO, ICON_CREDIT, ICON_URL, LINKS, NAME, SKILLS};
 
 #[component]
 pub fn Home() -> impl IntoView {
     view! {
         <main class="home">
-            <header>
+            <header class="home-header">
+                <img class="home-icon" src=ICON_URL alt="" width="96" height="96" />
                 <h1 class="home-name">{NAME}</h1>
             </header>
 
@@ -39,6 +40,16 @@ pub fn Home() -> impl IntoView {
                         .collect_view()}
                 </ul>
             </section>
+
+            <footer class="home-credit">
+                <p>
+                    "Icon by "
+                    <a href=ICON_CREDIT.1 target="_blank" rel="noopener noreferrer">
+                        {ICON_CREDIT.0}
+                    </a>
+                    " 🎨"
+                </p>
+            </footer>
         </main>
     }
 }

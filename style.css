@@ -42,6 +42,20 @@ body {
   line-height: 1.8;
 }
 
+.home-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.home-icon {
+  flex-shrink: 0;
+  width: 96px;
+  height: 96px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+}
+
 .home-name {
   margin: 0;
   color: var(--fg-active);
@@ -92,6 +106,21 @@ body {
 .home-links a:hover {
   color: var(--accent);
   text-decoration-color: var(--accent);
+}
+
+.home-credit p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.home-credit a {
+  color: inherit;
+  text-underline-offset: 3px;
+}
+
+.home-credit a:hover {
+  color: var(--accent);
 }
 
 .theme-toggle {
