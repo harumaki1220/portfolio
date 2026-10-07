@@ -7,6 +7,21 @@ pub const BIO: &[&str] = &[
 
 pub const SKILLS: &[&str] = &["Rust", "TypeScript"];
 
+pub struct Work {
+    pub name: &'static str,
+    pub description: &'static str,
+    pub tech: &'static [&'static str],
+    /// (表示名, URL)
+    pub links: &'static [(&'static str, &'static str)],
+}
+
+pub const WORKS: &[Work] = &[Work {
+    name: "portfolio",
+    description: "このサイト。Rust と Leptos で書いて、WebAssembly としてブラウザで動かしています。",
+    tech: &["Rust", "Leptos", "WebAssembly"],
+    links: &[("Source", "https://github.com/harumaki1220/portfolio")],
+}];
+
 pub const LINKS: &[(&str, &str)] = &[
     ("GitHub", "https://github.com/harumaki1220"),
     ("X", "https://x.com/matcha445_dev"),

@@ -1,6 +1,6 @@
 use leptos::prelude::*;
 
-use crate::profile::{BIO, ICON_CREDIT, ICON_URL, LINKS, NAME, SKILLS};
+use crate::profile::{BIO, ICON_CREDIT, ICON_URL, LINKS, NAME, SKILLS, WORKS};
 
 #[component]
 pub fn Home() -> impl IntoView {
@@ -19,6 +19,42 @@ pub fn Home() -> impl IntoView {
                 <h2 class="home-heading">"Skills"</h2>
                 <ul class="home-skills">
                     {SKILLS.iter().map(|skill| view! { <li>{*skill}</li> }).collect_view()}
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="home-heading">"Works"</h2>
+                <ul class="works">
+                    {WORKS
+                        .iter()
+                        .map(|work| {
+                            view! {
+                                <li class="work">
+                                    <h3 class="work-name">{work.name}</h3>
+                                    <p class="work-description">{work.description}</p>
+                                    <p class="work-meta">
+                                        <span>{work.tech.join(" / ")}</span>
+                                        {work
+                                            .links
+                                            .iter()
+                                            .map(|(label, href)| {
+                                                view! {
+                                                    <a
+                                                        href=*href
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                    >
+                                                        {*label}
+                                                        " ↗"
+                                                    </a>
+                                                }
+                                            })
+                                            .collect_view()}
+                                    </p>
+                                </li>
+                            }
+                        })
+                        .collect_view()}
                 </ul>
             </section>
 

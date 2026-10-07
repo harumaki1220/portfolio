@@ -108,6 +108,47 @@ body {
   text-decoration-color: var(--accent);
 }
 
+.works {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 24px;
+}
+
+.work-name {
+  margin: 0;
+  color: var(--fg-active);
+  font-family: var(--mono);
+  font-size: 16px;
+}
+
+.work-description {
+  margin: 4px 0 0;
+}
+
+.work-meta {
+  margin: 4px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 13px;
+}
+
+.work-meta a {
+  color: var(--fg);
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 4px;
+}
+
+.work-meta a:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
 .home-credit p {
   margin: 0;
   color: var(--muted);
