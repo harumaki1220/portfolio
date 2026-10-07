@@ -1,18 +1,16 @@
+mod app;
 mod home;
 mod profile;
+mod route;
+mod skills;
 mod theme;
+mod works;
 
 use leptos::prelude::*;
 
-use home::Home;
-use theme::ThemeToggle;
+use app::App;
 
 fn main() {
     console_error_panic_hook::set_once();
-    mount_to_body(|| {
-        view! {
-            <ThemeToggle />
-            <Home />
-        }
-    });
+    mount_to_body(App);
 }

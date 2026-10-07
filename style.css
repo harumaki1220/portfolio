@@ -95,6 +95,50 @@ body {
   font-size: 14px;
 }
 
+.home-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.home-nav a {
+  display: block;
+  padding: 10px 20px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--fg-active);
+  font-family: var(--mono);
+  font-size: 15px;
+  text-decoration: none;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.home-nav a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.back-link {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  color: var(--accent);
+}
+
+.page-title {
+  margin: 8px 0 0;
+  color: var(--fg-active);
+  font-size: clamp(2rem, 7vw, 2.5rem);
+  line-height: 1.2;
+}
+
 .skills {
   display: grid;
   gap: 20px;
