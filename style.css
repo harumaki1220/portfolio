@@ -4,7 +4,8 @@
   --fg-active: #ffffff;
   --muted: #858585;
   --border: #3c3c3c;
-  --accent: #f1714f;
+  --accent: #9a9cf0;
+  --accent-soft: rgba(154, 156, 240, 0.16);
   --content-width: 960px;
   --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
   color-scheme: dark;
@@ -16,7 +17,8 @@
   --fg-active: #18181b;
   --muted: #71717a;
   --border: #d4d4d8;
-  --accent: #ce422b;
+  --accent: #5759ab;
+  --accent-soft: rgba(87, 89, 171, 0.12);
   color-scheme: light;
 }
 
@@ -67,8 +69,8 @@ body {
 }
 
 .site-nav a[aria-current="page"] {
-  background: var(--border);
-  color: var(--fg-active);
+  background: var(--accent-soft);
+  color: var(--accent);
 }
 
 .placeholder {
@@ -96,7 +98,7 @@ body {
   flex-shrink: 0;
   width: 96px;
   height: 96px;
-  border: 1px solid var(--border);
+  border: 2px solid var(--accent);
   border-radius: 50%;
 }
 
@@ -109,7 +111,7 @@ body {
 
 .home-heading {
   margin: 0 0 12px;
-  color: var(--muted);
+  color: var(--accent);
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.1em;
