@@ -1,9 +1,4 @@
-pub const NAME: &str = "matcha";
-
-pub const BIO: &[&str] = &[
-    "東洋大学 情報連携学部 (INIAD) 2年。",
-    "Rust と TypeScript を中心に日々コードを書いています。",
-];
+pub const NAME: &str = "まっちゃ";
 
 pub struct SkillCategory {
     pub name: &'static str,
@@ -37,6 +32,12 @@ pub const SKILLS: &[SkillCategory] = &[
     },
 ];
 
+/// About ページの自己紹介。1要素が1段落になる
+pub const ABOUT: &[&str] = &[
+    "INIAD（東洋大学 情報連携学部）の2年生です。",
+    "初めての開発は、TypeScriptのサークルで作ったオセロでした。今はRustとTypeScriptを中心に、いろいろ作っています。",
+];
+
 pub struct Work {
     pub name: &'static str,
     pub description: &'static str,
@@ -47,7 +48,7 @@ pub struct Work {
 
 pub const WORKS: &[Work] = &[Work {
     name: "portfolio",
-    description: "このサイト。Rust と Leptos で書いて、WebAssembly としてブラウザで動かしています。",
+    description: "このサイト。Rustでのフロントエンド開発を試すためにLeptosで作りました。WebAssemblyとしてブラウザで動いています。",
     tech: &["Rust", "Leptos", "WebAssembly"],
     links: &[("Source", "https://github.com/harumaki1220/portfolio")],
 }];

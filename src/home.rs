@@ -1,6 +1,7 @@
 use leptos::prelude::*;
 
-use crate::profile::{BIO, ICON_CREDIT, ICON_URL, LINKS, NAME};
+use crate::profile::{ABOUT, ICON_CREDIT, ICON_URL, LINKS, NAME};
+use crate::skills::Skills;
 
 #[component]
 pub fn Home() -> impl IntoView {
@@ -11,20 +12,17 @@ pub fn Home() -> impl IntoView {
                 <h1 class="home-name">{NAME}</h1>
             </header>
 
-            <p class="home-bio">
-                {BIO.iter().map(|line| view! { <span>{*line}</span> }).collect_view()}
-            </p>
+            <section>
+                <h2 class="home-heading">"About"</h2>
+                <div class="about-text">
+                    {ABOUT.iter().map(|paragraph| view! { <p>{*paragraph}</p> }).collect_view()}
+                </div>
+            </section>
 
-            <nav>
-                <ul class="home-nav">
-                    <li>
-                        <a href="#/skills">"Skills →"</a>
-                    </li>
-                    <li>
-                        <a href="#/works">"Works →"</a>
-                    </li>
-                </ul>
-            </nav>
+            <section>
+                <h2 class="home-heading">"Skills"</h2>
+                <Skills />
+            </section>
 
             <section>
                 <h2 class="home-heading">"Links"</h2>

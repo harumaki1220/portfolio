@@ -1,4 +1,4 @@
-//! URL のハッシュ（`#/skills` など）で表示するページを決める。
+//! URL のハッシュ（`#/works` など）で表示するページを決める。
 //! ハッシュはサーバーに送られないので、GitHub Pages でも直接開いたりリロードしたりできる。
 
 use leptos::{ev, prelude::*};
@@ -6,25 +6,44 @@ use leptos::{ev, prelude::*};
 #[derive(Clone, Copy, PartialEq)]
 pub enum Page {
     Home,
-    Skills,
     Works,
+    Blogs,
 }
 
 impl Page {
+    /// ナビゲーションに並べる順番
+    pub const ALL: [Page; 3] = [Page::Home, Page::Works, Page::Blogs];
+
     fn from_hash(hash: &str) -> Self {
         match hash {
-            "#/skills" => Page::Skills,
             "#/works" => Page::Works,
+            "#/blogs" => Page::Blogs,
             // 空や知らないハッシュはトップに戻す
             _ => Page::Home,
         }
     }
 
+    pub fn href(self) -> &'static str {
+        match self {
+            Page::Home => "#/",
+            Page::Works => "#/works",
+            Page::Blogs => "#/blogs",
+        }
+    }
+
+    pub fn label(self) -> &'static str {
+        match self {
+            Page::Home => "Home",
+            Page::Works => "Works",
+            Page::Blogs => "Blogs",
+        }
+    }
+
     pub fn title(self) -> &'static str {
         match self {
-            Page::Home => "matcha",
-            Page::Skills => "Skills | matcha",
-            Page::Works => "Works | matcha",
+            Page::Home => "まっちゃ",
+            Page::Works => "Works | まっちゃ",
+            Page::Blogs => "Blogs | まっちゃ",
         }
     }
 }

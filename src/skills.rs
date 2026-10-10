@@ -1,40 +1,35 @@
 use leptos::prelude::*;
 
-use crate::app::SubPage;
 use crate::profile::SKILLS;
 
 #[component]
-pub fn SkillsPage() -> impl IntoView {
+pub fn Skills() -> impl IntoView {
     view! {
-        <SubPage title="Skills">
-            <div class="skills">
-                {SKILLS
-                    .iter()
-                    .map(|category| {
-                        view! {
-                            <div class="skill-category">
-                                <h2 class="skill-category-name">{category.name}</h2>
-                                {if category.others.is_empty() {
-                                    // 分ける意味がない分類は、ラベルなしで1行に並べる
-                                    view! {
-                                        <p class="skill-list">{category.main.join(" / ")}</p>
-                                    }
-                                        .into_any()
-                                } else {
-                                    view! {
-                                        <dl>
-                                            <SkillRow label="Main" skills=category.main />
-                                            <SkillRow label="Others" skills=category.others />
-                                        </dl>
-                                    }
-                                        .into_any()
-                                }}
-                            </div>
-                        }
-                    })
-                    .collect_view()}
-            </div>
-        </SubPage>
+        <div class="skills">
+            {SKILLS
+                .iter()
+                .map(|category| {
+                    view! {
+                        <div class="skill-category">
+                            <h3 class="skill-category-name">{category.name}</h3>
+                            {if category.others.is_empty() {
+                                // 分ける意味がない分類は、ラベルなしで1行に並べる
+                                view! { <p class="skill-list">{category.main.join(" / ")}</p> }
+                                    .into_any()
+                            } else {
+                                view! {
+                                    <dl>
+                                        <SkillRow label="Main" skills=category.main />
+                                        <SkillRow label="Others" skills=category.others />
+                                    </dl>
+                                }
+                                    .into_any()
+                            }}
+                        </div>
+                    }
+                })
+                .collect_view()}
+        </div>
     }
 }
 

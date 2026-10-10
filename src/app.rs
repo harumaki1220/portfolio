@@ -1,8 +1,8 @@
 use leptos::prelude::*;
 
+use crate::blogs::BlogsPage;
 use crate::home::Home;
 use crate::route::{Page, use_page};
-use crate::skills::SkillsPage;
 use crate::theme::ThemeToggle;
 use crate::works::WorksPage;
 
@@ -18,26 +18,50 @@ pub fn App() -> impl IntoView {
     });
 
     view! {
-        <ThemeToggle />
+        <SiteHeader page />
         {move || match page.get() {
             Page::Home => view! { <Home /> }.into_any(),
-            Page::Skills => view! { <SkillsPage /> }.into_any(),
             Page::Works => view! { <WorksPage /> }.into_any(),
+            Page::Blogs => view! { <BlogsPage /> }.into_any(),
         }}
     }
 }
 
-/// サブページ共通の枠。トップに戻るリンクと見出しを付ける。
+/// 全ページ共通の上のバー。ページへのリンクとテーマ切り替え。
+#[component]
+fn SiteHeader(page: ReadSignal<Page>) -> impl IntoView {
+    view! {
+        <header class="site-header">
+            <nav>
+                <ul class="site-nav">
+                    {Page::ALL
+                        .into_iter()
+                        .map(|target| {
+                            view! {
+                                <li>
+                                    <a
+                                        href=target.href()
+                                        aria-current=move || (page.get() == target).then_some("page")
+                                    >
+                                        {target.label()}
+                                    </a>
+                                </li>
+                            }
+                        })
+                        .collect_view()}
+                </ul>
+            </nav>
+            <ThemeToggle />
+        </header>
+    }
+}
+
+/// Home 以外のページ共通の枠。見出しを付ける。
 #[component]
 pub fn SubPage(title: &'static str, children: Children) -> impl IntoView {
     view! {
         <main class="home">
-            <header>
-                <a class="back-link" href="#/">
-                    "← Home"
-                </a>
-                <h1 class="page-title">{title}</h1>
-            </header>
+            <h1 class="page-title">{title}</h1>
             {children()}
         </main>
     }

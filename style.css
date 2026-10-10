@@ -32,10 +32,53 @@ body {
   font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif;
 }
 
+.site-header {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.site-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 4px;
+}
+
+.site-nav a {
+  display: block;
+  padding: 6px 12px;
+  border-radius: 6px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.15s, background-color 0.15s;
+}
+
+.site-nav a:hover {
+  color: var(--fg-active);
+}
+
+.site-nav a[aria-current="page"] {
+  background: var(--border);
+  color: var(--fg-active);
+}
+
+.placeholder {
+  margin: 0;
+  color: var(--muted);
+}
+
 .home {
   max-width: 640px;
   margin: 0 auto;
-  padding: 96px 16px 64px;
+  padding: 48px 16px 64px;
   display: grid;
   gap: 48px;
   font-size: 16px;
@@ -63,18 +106,6 @@ body {
   line-height: 1.2;
 }
 
-.home-sub {
-  margin: 8px 0 0;
-  color: var(--muted);
-  font-family: var(--mono);
-  font-size: 14px;
-}
-
-.home-bio {
-  margin: 0;
-  display: grid;
-}
-
 .home-heading {
   margin: 0 0 12px;
   color: var(--muted);
@@ -95,48 +126,20 @@ body {
   font-size: 14px;
 }
 
-.home-nav {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.home-nav a {
-  display: block;
-  padding: 10px 20px;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  color: var(--fg-active);
-  font-family: var(--mono);
-  font-size: 15px;
-  text-decoration: none;
-  transition: border-color 0.15s, color 0.15s;
-}
-
-.home-nav a:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-.back-link {
-  color: var(--muted);
-  font-family: var(--mono);
-  font-size: 14px;
-  text-decoration: none;
-}
-
-.back-link:hover {
-  color: var(--accent);
-}
-
 .page-title {
-  margin: 8px 0 0;
+  margin: 0;
   color: var(--fg-active);
   font-size: clamp(2rem, 7vw, 2.5rem);
   line-height: 1.2;
+}
+
+.about-text {
+  display: grid;
+  gap: 16px;
+}
+
+.about-text p {
+  margin: 0;
 }
 
 .skills {
@@ -250,9 +253,7 @@ body {
 }
 
 .theme-toggle {
-  position: fixed;
-  top: 16px;
-  right: 16px;
+  flex-shrink: 0;
   width: 40px;
   height: 40px;
   display: grid;

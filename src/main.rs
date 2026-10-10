@@ -1,4 +1,5 @@
 mod app;
+mod blogs;
 mod home;
 mod profile;
 mod route;
