@@ -1,5 +1,6 @@
 mod app;
 mod blogs;
+mod chips;
 mod home;
 mod profile;
 mod route;

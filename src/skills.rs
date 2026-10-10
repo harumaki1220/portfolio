@@ -1,5 +1,6 @@
 use leptos::prelude::*;
 
+use crate::chips::Chips;
 use crate::profile::SKILLS;
 
 #[component]
@@ -14,13 +15,13 @@ pub fn Skills() -> impl IntoView {
                             <h3 class="skill-category-name">{category.name}</h3>
                             {if category.others.is_empty() {
                                 // 分ける意味がない分類は、ラベルなしで1行に並べる
-                                view! { <p class="skill-list">{category.main.join(" / ")}</p> }
+                                view! { <Chips items=category.main /> }
                                     .into_any()
                             } else {
                                 view! {
                                     <dl>
-                                        <SkillRow label="Main" skills=category.main />
-                                        <SkillRow label="Others" skills=category.others />
+                                        <SkillRow label="Main" skills=category.main main=true />
+                                        <SkillRow label="Others" skills=category.others main=false />
                                     </dl>
                                 }
                                     .into_any()
@@ -35,12 +36,14 @@ pub fn Skills() -> impl IntoView {
 
 /// 「Main」「Others」の1行。該当するスキルがなければ何も表示しない。
 #[component]
-fn SkillRow(label: &'static str, skills: &'static [&'static str]) -> impl IntoView {
+fn SkillRow(label: &'static str, skills: &'static [&'static str], main: bool) -> impl IntoView {
     (!skills.is_empty()).then(|| {
         view! {
             <div class="skill-group">
                 <dt>{label}</dt>
-                <dd>{skills.join(" / ")}</dd>
+                <dd>
+                    <Chips items=skills main />
+                </dd>
             </div>
         }
     })

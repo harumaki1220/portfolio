@@ -6,6 +6,7 @@
   --border: #3c3c3c;
   --accent: #9a9cf0;
   --accent-soft: rgba(154, 156, 240, 0.16);
+  --surface: #252526;
   --content-width: 960px;
   --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
   color-scheme: dark;
@@ -19,6 +20,7 @@
   --border: #d4d4d8;
   --accent: #5759ab;
   --accent-soft: rgba(87, 89, 171, 0.12);
+  --surface: #ffffff;
   color-scheme: light;
 }
 
@@ -152,7 +154,7 @@ body {
 }
 
 .skill-category-name {
-  margin: 0 0 4px;
+  margin: 0 0 8px;
   color: var(--fg-active);
   font-size: 14px;
   font-weight: 600;
@@ -161,12 +163,13 @@ body {
 .skill-category dl {
   margin: 0;
   display: grid;
-  gap: 4px;
+  gap: 8px;
 }
 
 .skill-group {
   display: grid;
   grid-template-columns: 6em 1fr;
+  align-items: center;
   gap: 16px;
 }
 
@@ -174,16 +177,38 @@ body {
   color: var(--muted);
 }
 
-.skill-group dd,
-.skill-list {
+.skill-group dd {
   margin: 0;
+}
+
+.chips {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip {
+  padding: 2px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
   font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.chips-main .chip {
+  border-color: transparent;
+  background: var(--accent-soft);
+  color: var(--accent);
 }
 
 @media (max-width: 480px) {
   .skill-group {
     grid-template-columns: 1fr;
-    gap: 0;
+    gap: 4px;
   }
 }
 
@@ -210,7 +235,23 @@ body {
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 24px;
+  gap: 16px;
+}
+
+.work {
+  padding: 16px 20px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  transition: border-color 0.15s;
+}
+
+.work:hover {
+  border-color: var(--accent);
+}
+
+.work .chips {
+  margin-top: 12px;
 }
 
 .work-header {
@@ -236,8 +277,8 @@ body {
   margin: 4px 0 0;
 }
 
-.work-meta {
-  margin: 4px 0 0;
+.work-links {
+  margin: 12px 0 0;
   display: flex;
   flex-wrap: wrap;
   gap: 4px 16px;
@@ -246,14 +287,14 @@ body {
   font-size: 13px;
 }
 
-.work-meta a {
+.work-links a {
   color: var(--fg);
   text-decoration: underline;
   text-decoration-color: var(--border);
   text-underline-offset: 4px;
 }
 
-.work-meta a:hover {
+.work-links a:hover {
   color: var(--accent);
   text-decoration-color: var(--accent);
 }

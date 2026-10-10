@@ -1,6 +1,7 @@
 use leptos::prelude::*;
 
 use crate::app::SubPage;
+use crate::chips::Chips;
 use crate::profile::WORKS;
 
 #[component]
@@ -18,8 +19,8 @@ pub fn WorksPage() -> impl IntoView {
                                     <time class="work-date">{work.date}</time>
                                 </div>
                                 <p class="work-description">{work.description}</p>
-                                <p class="work-meta">
-                                    <span>{work.tech.join(" / ")}</span>
+                                <Chips items=work.tech />
+                                <p class="work-links">
                                     {work
                                         .links
                                         .iter()
