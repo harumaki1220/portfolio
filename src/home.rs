@@ -1,6 +1,7 @@
 use leptos::prelude::*;
 
 use crate::profile::{ABOUT, ICON_CREDIT, ICON_URL, LIKES, LINKS, NAME};
+use crate::icons::BrandIcon;
 use crate::skills::Skills;
 
 #[component]
@@ -36,12 +37,12 @@ pub fn Home() -> impl IntoView {
                 <ul class="home-links">
                     {LINKS
                         .iter()
-                        .map(|(label, href)| {
+                        .map(|(icon, label, href)| {
                             view! {
                                 <li>
                                     <a href=*href target="_blank" rel="noopener noreferrer">
+                                        <BrandIcon icon=*icon />
                                         {*label}
-                                        " ↗"
                                     </a>
                                 </li>
                             }

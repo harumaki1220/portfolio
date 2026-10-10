@@ -1,3 +1,5 @@
+use crate::icons::Icon;
+
 pub const NAME: &str = "まっちゃ";
 
 pub struct SkillCategory {
@@ -89,9 +91,10 @@ pub const WORKS: &[Work] = &[
     },
 ];
 
-pub const LINKS: &[(&str, &str)] = &[
-    ("GitHub", "https://github.com/harumaki1220"),
-    ("X", "https://x.com/matcha445_dev"),
+/// (ロゴ, 表示名, URL)
+pub const LINKS: &[(Icon, &str, &str)] = &[
+    (Icon::GitHub, "GitHub", "https://github.com/harumaki1220"),
+    (Icon::X, "X", "https://x.com/matcha445_dev"),
 ];
 
 /// GitHub のアイコンをそのまま表示する

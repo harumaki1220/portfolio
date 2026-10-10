@@ -2,6 +2,7 @@ mod app;
 mod blogs;
 mod chips;
 mod home;
+mod icons;
 mod profile;
 mod route;
 mod skills;
