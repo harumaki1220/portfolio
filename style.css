@@ -90,6 +90,41 @@ body {
   line-height: 1.8;
 }
 
+/* ページを開いたときに、上から順にふわっと表示する */
+.home > * {
+  animation: fade-in 0.5s ease-out both;
+}
+
+.home > :nth-child(2) {
+  animation-delay: 0.06s;
+}
+
+.home > :nth-child(3) {
+  animation-delay: 0.12s;
+}
+
+.home > :nth-child(4) {
+  animation-delay: 0.18s;
+}
+
+.home > :nth-child(n + 5) {
+  animation-delay: 0.24s;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+/* 動きを減らす設定にしている人には、アニメーションを出さない */
+@media (prefers-reduced-motion: reduce) {
+  .home > * {
+    animation: none;
+  }
+}
+
 .home-header {
   display: flex;
   align-items: center;
