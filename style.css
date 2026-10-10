@@ -213,6 +213,18 @@ body {
   gap: 24px;
 }
 
+.work-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.work-date {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 13px;
+}
+
 .work-name {
   margin: 0;
   color: var(--fg-active);

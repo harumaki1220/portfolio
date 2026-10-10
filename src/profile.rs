@@ -50,18 +50,44 @@ pub const LIKES: &[&str] = &[
 
 pub struct Work {
     pub name: &'static str,
+    /// "2025.04" の形
+    pub date: &'static str,
     pub description: &'static str,
     pub tech: &'static [&'static str],
     /// (表示名, URL)
     pub links: &'static [(&'static str, &'static str)],
 }
 
-pub const WORKS: &[Work] = &[Work {
-    name: "portfolio",
-    description: "このサイト。Rustでのフロントエンド開発を試すためにLeptosで作りました。WebAssemblyとしてブラウザで動いています。",
-    tech: &["Rust", "Leptos", "WebAssembly"],
-    links: &[("Source", "https://github.com/harumaki1220/portfolio")],
-}];
+/// 新しい順に並べる
+pub const WORKS: &[Work] = &[
+    Work {
+        name: "portfolio",
+        date: "2026.10",
+        description: "このサイト。Rustでのフロントエンド開発を試すためにLeptosで作りました。WebAssemblyとしてブラウザで動いています。",
+        tech: &["Rust", "Leptos", "WebAssembly"],
+        links: &[("Source", "https://github.com/harumaki1220/portfolio")],
+    },
+    Work {
+        name: "minesweeper",
+        date: "2025.05",
+        description: "オセロの次に、TypeScriptのサークルで作ったマインスイーパーです。再帰関数で空白のマスを一気に開く処理を学びました。",
+        tech: &["TypeScript", "React", "Next.js"],
+        links: &[
+            ("Demo", "https://harumaki1220.github.io/minesweeper/"),
+            ("Source", "https://github.com/harumaki1220/minesweeper"),
+        ],
+    },
+    Work {
+        name: "othello",
+        date: "2025.04",
+        description: "初めての開発。TypeScriptのサークルで作ったオセロです。useStateで盤面の状態を管理することを学びました。",
+        tech: &["TypeScript", "React", "Next.js"],
+        links: &[
+            ("Demo", "https://harumaki1220.github.io/othello/"),
+            ("Source", "https://github.com/harumaki1220/othello"),
+        ],
+    },
+];
 
 pub const LINKS: &[(&str, &str)] = &[
     ("GitHub", "https://github.com/harumaki1220"),

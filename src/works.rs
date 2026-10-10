@@ -13,7 +13,10 @@ pub fn WorksPage() -> impl IntoView {
                     .map(|work| {
                         view! {
                             <li class="work">
-                                <h2 class="work-name">{work.name}</h2>
+                                <div class="work-header">
+                                    <h2 class="work-name">{work.name}</h2>
+                                    <time class="work-date">{work.date}</time>
+                                </div>
                                 <p class="work-description">{work.description}</p>
                                 <p class="work-meta">
                                     <span>{work.tech.join(" / ")}</span>
