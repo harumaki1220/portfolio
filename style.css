@@ -5,6 +5,7 @@
   --muted: #858585;
   --border: #3c3c3c;
   --accent: #f1714f;
+  --content-width: 960px;
   --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
   color-scheme: dark;
 }
@@ -33,7 +34,7 @@ body {
 }
 
 .site-header {
-  max-width: 640px;
+  max-width: var(--content-width);
   margin: 0 auto;
   padding: 16px;
   display: flex;
@@ -76,7 +77,7 @@ body {
 }
 
 .home {
-  max-width: 640px;
+  max-width: var(--content-width);
   margin: 0 auto;
   padding: 48px 16px 64px;
   display: grid;
@@ -135,7 +136,7 @@ body {
 
 .about-text {
   display: grid;
-  gap: 16px;
+  gap: 4px;
 }
 
 .about-text p {
@@ -194,6 +195,12 @@ body {
 .home-links a:hover {
   color: var(--accent);
   text-decoration-color: var(--accent);
+}
+
+.likes {
+  margin: 0;
+  padding-left: 1.25em;
+  font-size: 15px;
 }
 
 .works {
