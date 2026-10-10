@@ -1,23 +1,25 @@
 :root {
-  --bg: #1e1e1e;
-  --fg: #cccccc;
+  /* 背景はアイコンの髪の青紫に寄せた紺 */
+  --bg: #1a1b2e;
+  --fg: #d0d1e4;
   --fg-active: #ffffff;
-  --muted: #858585;
-  --border: #3c3c3c;
+  --muted: #8b8db0;
+  --border: #34365a;
   --accent: #9a9cf0;
   --accent-soft: rgba(154, 156, 240, 0.16);
-  --surface: #252526;
+  --surface: #222440;
   --content-width: 960px;
   --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --rounded: "Zen Maru Gothic", system-ui, sans-serif;
   color-scheme: dark;
 }
 
 :root[data-theme="light"] {
-  --bg: #fafafa;
-  --fg: #3f3f46;
-  --fg-active: #18181b;
-  --muted: #71717a;
-  --border: #d4d4d8;
+  --bg: #f7f7fc;
+  --fg: #3f4054;
+  --fg-active: #1a1b2e;
+  --muted: #6c6e8a;
+  --border: #dcdcec;
   --accent: #5759ab;
   --accent-soft: rgba(87, 89, 171, 0.12);
   --surface: #ffffff;
@@ -57,11 +59,12 @@ body {
 
 .site-nav a {
   display: block;
-  padding: 6px 12px;
-  border-radius: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
   color: var(--muted);
-  font-family: var(--mono);
-  font-size: 14px;
+  font-family: var(--rounded);
+  font-size: 15px;
+  font-weight: 700;
   text-decoration: none;
   transition: color 0.15s, background-color 0.15s;
 }
@@ -142,6 +145,8 @@ body {
 .home-name {
   margin: 0;
   color: var(--fg-active);
+  font-family: var(--rounded);
+  font-weight: 700;
   font-size: clamp(2.25rem, 8vw, 3rem);
   line-height: 1.2;
 }
@@ -149,10 +154,9 @@ body {
 .home-heading {
   margin: 0 0 12px;
   color: var(--accent);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-family: var(--rounded);
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .home-links {
@@ -168,6 +172,8 @@ body {
 .page-title {
   margin: 0;
   color: var(--fg-active);
+  font-family: var(--rounded);
+  font-weight: 700;
   font-size: clamp(2rem, 7vw, 2.5rem);
   line-height: 1.2;
 }
@@ -190,8 +196,9 @@ body {
 .skill-category-name {
   margin: 0 0 8px;
   color: var(--fg-active);
-  font-size: 14px;
-  font-weight: 600;
+  font-family: var(--rounded);
+  font-size: 15px;
+  font-weight: 700;
 }
 
 .skill-category dl {
@@ -286,7 +293,7 @@ body {
 .work {
   padding: 16px 20px;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 12px;
   background: var(--surface);
   transition: border-color 0.15s;
 }
@@ -314,7 +321,8 @@ body {
 .work-name {
   margin: 0;
   color: var(--fg-active);
-  font-family: var(--mono);
+  font-family: var(--rounded);
+  font-weight: 700;
   font-size: 16px;
 }
 
@@ -328,7 +336,6 @@ body {
   flex-wrap: wrap;
   gap: 4px 16px;
   color: var(--muted);
-  font-family: var(--mono);
   font-size: 13px;
 }
 
