@@ -1,0 +1,56 @@
+---
+import BrandIcon from "../components/BrandIcon.astro";
+import Skills from "../components/Skills.astro";
+import { ABOUT, ICON_CREDIT, ICON_URL, LIKES, LINKS, NAME } from "../data/profile";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title={NAME}>
+  <header class="home-header">
+    <img class="home-icon" src={ICON_URL} alt="" width="96" height="96" />
+    <h1 class="home-name">{NAME}</h1>
+  </header>
+
+  <section>
+    <h2 class="home-heading">About</h2>
+    <div class="about-text">
+      {ABOUT.map((paragraph) => <p>{paragraph}</p>)}
+    </div>
+  </section>
+
+  <section>
+    <h2 class="home-heading">Skills</h2>
+    <Skills />
+  </section>
+
+  <section>
+    <h2 class="home-heading">Likes</h2>
+    <ul class="likes">
+      {LIKES.map((like) => <li>{like}</li>)}
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="home-heading">Links</h2>
+    <ul class="home-links">
+      {
+        LINKS.map((link) => (
+          <li>
+            <a href={link.href} target="_blank" rel="noopener noreferrer">
+              <BrandIcon icon={link.icon} />
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <footer class="home-credit">
+    <p>
+      Icon by <a href={ICON_CREDIT.href} target="_blank" rel="noopener noreferrer">
+        {ICON_CREDIT.label}
+      </a> 🎨
+    </p>
+  </footer>
+</BaseLayout>

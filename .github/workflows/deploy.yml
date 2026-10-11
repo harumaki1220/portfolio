@@ -10,12 +10,10 @@ permissions:
   pages: write
   id-token: write
 
+# デプロイが重なったときは、後から来たものを待たせる
 concurrency:
   group: pages
   cancel-in-progress: false
-
-env:
-  TRUNK_VERSION: v0.21.14
 
 jobs:
   build:
@@ -23,26 +21,25 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
-      - uses: dtolnay/rust-toolchain@stable
+      - uses: pnpm/action-setup@v6
+
+      - uses: actions/setup-node@v7
         with:
-          targets: wasm32-unknown-unknown
+          node-version: 24
+          cache: pnpm
 
-      - uses: Swatinem/rust-cache@v2
+      - run: pnpm install --frozen-lockfile
 
-      - name: Install Trunk
-        run: |
-          curl -sSfL "https://github.com/trunk-rs/trunk/releases/download/${TRUNK_VERSION}/trunk-x86_64-unknown-linux-gnu.tar.gz" \
-            | tar -xz -C /usr/local/bin
-
+      # <ユーザー名>.github.io リポジトリならルート、それ以外は /<リポジトリ名> で公開される
       - name: Build
         run: |
           repo="${{ github.event.repository.name }}"
           if [[ "$repo" == *.github.io ]]; then
-            public_url="/"
+            export BASE_PATH="/"
           else
-            public_url="/${repo}/"
+            export BASE_PATH="/${repo}"
           fi
-          trunk build --release --public-url "$public_url"
+          pnpm build
 
       - uses: actions/upload-pages-artifact@v5
         with:

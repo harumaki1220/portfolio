@@ -1,5 +1,4 @@
 :root {
-  /* 背景はアイコンの髪の青紫に寄せた紺 */
   --bg: #1a1b2e;
   --fg: #d0d1e4;
   --fg-active: #ffffff;
@@ -384,4 +383,14 @@ body {
 .theme-toggle:hover {
   border-color: var(--accent);
   color: var(--accent);
+}
+
+/* 今のテーマと逆のアイコンだけ表示する */
+.theme-toggle-to-dark,
+:root[data-theme="light"] .theme-toggle-to-light {
+  display: none;
+}
+
+:root[data-theme="light"] .theme-toggle-to-dark {
+  display: inline;
 }

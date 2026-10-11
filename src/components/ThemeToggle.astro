@@ -1,0 +1,22 @@
+---
+// ダーク / ライトの切り替え。初期値は BaseLayout の <head> のスクリプトが
+// <html data-theme="..."> に設定済み。アイコンの出し分けは CSS でやる
+---
+
+<button class="theme-toggle" type="button" aria-label="ダーク / ライトを切り替え">
+  <span class="theme-toggle-to-light" aria-hidden="true">☀</span>
+  <span class="theme-toggle-to-dark" aria-hidden="true">☾</span>
+</button>
+
+<script>
+  const button = document.querySelector(".theme-toggle");
+  button?.addEventListener("click", () => {
+    const root = document.documentElement;
+    const next = root.dataset.theme === "light" ? "dark" : "light";
+    root.dataset.theme = next;
+    // プライベートモードなどで保存できなくても、切り替え自体はできるので無視する
+    try {
+      localStorage.setItem("theme", next);
+    } catch {}
+  });
+</script>

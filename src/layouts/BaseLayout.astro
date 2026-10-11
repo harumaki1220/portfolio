@@ -1,10 +1,22 @@
+---
+import SiteHeader from "../components/SiteHeader.astro";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
 <!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Portfolio</title>
-    <script>
+    <title>{title}</title>
+    <script is:inline>
+      // ページが表示される前にテーマを決めて、一瞬違う色で表示されるのを防ぐ
       (() => {
         let theme = null;
         try {
@@ -22,8 +34,11 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@700&display=swap"
     />
-    <link data-trunk rel="css" href="style.css" />
-    <link data-trunk rel="rust" data-wasm-opt="z" />
   </head>
-  <body></body>
+  <body>
+    <SiteHeader />
+    <main class="home">
+      <slot />
+    </main>
+  </body>
 </html>

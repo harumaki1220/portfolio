@@ -1,0 +1,13 @@
+---
+// 角丸の小さなタグを横に並べる。main を付けるとアクセントカラーになる
+interface Props {
+  items: string[];
+  main?: boolean;
+}
+
+const { items, main = false } = Astro.props;
+---
+
+<ul class:list={["chips", { "chips-main": main }]}>
+  {items.map((item) => <li class="chip">{item}</li>)}
+</ul>
