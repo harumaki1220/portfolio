@@ -1,12 +1,16 @@
 :root {
-  --bg: #1a1b2e;
-  --fg: #d0d1e4;
-  --fg-active: #ffffff;
-  --muted: #8b8db0;
-  --border: #34365a;
-  --accent: #9a9cf0;
-  --accent-soft: rgba(154, 156, 240, 0.16);
-  --surface: #222440;
+  /* 抹茶の色。GitHub のプロフィールの Stats カードと揃えている */
+  --bg: #1a2016;
+  --fg: #e3dccb;
+  --fg-active: #fffff0;
+  --muted: #a39a86;
+  --border: #36422d;
+  /* メイン：抹茶の緑 */
+  --main: #9cc584;
+  --main-soft: rgba(156, 197, 132, 0.16);
+  /* アクセント：小豆色。マウスを乗せたときだけに使う */
+  --accent: #d98a8f;
+  --surface: #222a1d;
   --content-width: 960px;
   --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
   --rounded: "Zen Maru Gothic", system-ui, sans-serif;
@@ -14,14 +18,15 @@
 }
 
 :root[data-theme="light"] {
-  --bg: #f7f7fc;
-  --fg: #3f4054;
-  --fg-active: #1a1b2e;
-  --muted: #6c6e8a;
-  --border: #dcdcec;
-  --accent: #5759ab;
-  --accent-soft: rgba(87, 89, 171, 0.12);
-  --surface: #ffffff;
+  --bg: #fffff0;
+  --fg: #5b4637;
+  --fg-active: #3d2e23;
+  --muted: #7d6e5c;
+  --border: #cfe3c4;
+  --main: #52803e;
+  --main-soft: rgba(82, 128, 62, 0.12);
+  --accent: #96424c;
+  --surface: #fbfdf1;
   color-scheme: light;
 }
 
@@ -73,8 +78,8 @@ body {
 }
 
 .site-nav a[aria-current="page"] {
-  background: var(--accent-soft);
-  color: var(--accent);
+  background: var(--main-soft);
+  color: var(--main);
 }
 
 .placeholder {
@@ -137,7 +142,7 @@ body {
   flex-shrink: 0;
   width: 96px;
   height: 96px;
-  border: 2px solid var(--accent);
+  border: 2px solid var(--main);
   border-radius: 50%;
 }
 
@@ -152,7 +157,7 @@ body {
 
 .home-heading {
   margin: 0 0 12px;
-  color: var(--accent);
+  color: var(--main);
   font-family: var(--rounded);
   font-size: 20px;
   font-weight: 700;
@@ -241,8 +246,8 @@ body {
 
 .chips-main .chip {
   border-color: transparent;
-  background: var(--accent-soft);
-  color: var(--accent);
+  background: var(--main-soft);
+  color: var(--main);
 }
 
 @media (max-width: 480px) {
