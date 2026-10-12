@@ -402,6 +402,23 @@ body {
   height: 18px;
 }
 
+.theme-toggle.is-switching svg {
+  animation: icon-turn 0.5s ease-out;
+}
+
+@keyframes icon-turn {
+  from {
+    opacity: 0;
+    transform: rotate(-120deg) scale(0.4);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle.is-switching svg {
+    animation: none;
+  }
+}
+
 /* 今のテーマと逆のアイコンだけ表示する */
 .theme-toggle-to-dark,
 :root[data-theme="light"] .theme-toggle-to-light {
@@ -600,4 +617,24 @@ body {
 .not-found-link:hover {
   border-color: var(--accent);
   color: var(--accent);
+}
+
+/* テーマ切り替えのアニメーション。ブラウザ標準のフェードを止めて、ThemeToggle の動きだけにする */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* ボタンだけは水面に隠さず、すぐ新しい状態を見せて、アイコンが回るのを見えるようにする */
+.theme-toggle {
+  view-transition-name: theme-toggle;
+}
+
+::view-transition-old(theme-toggle) {
+  display: none;
+}
+
+::view-transition-new(theme-toggle) {
+  animation: none;
 }

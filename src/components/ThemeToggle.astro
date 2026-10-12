@@ -35,14 +35,64 @@
 </button>
 
 <script>
-  const button = document.querySelector(".theme-toggle");
-  button?.addEventListener("click", () => {
-    const root = document.documentElement;
-    const next = root.dataset.theme === "light" ? "dark" : "light";
-    root.dataset.theme = next;
+  const button = document.querySelector<HTMLButtonElement>(".theme-toggle");
+
+  function applyTheme(next: "light" | "dark") {
+    document.documentElement.dataset.theme = next;
     // プライベートモードなどで保存できなくても、切り替え自体はできるので無視する
     try {
       localStorage.setItem("theme", next);
     } catch {}
+  }
+
+  /**
+   * 下から上へ満ちていく clip-path のキーフレームを作る。
+   * 水面（上の境目）を波打たせて、少しずつ横に流すことで液体っぽく見せる
+   */
+  function fillKeyframes(frames = 30, points = 24, amplitude = 1.5): Keyframe[] {
+    const keyframes: Keyframe[] = [];
+    for (let f = 0; f <= frames; f++) {
+      const t = f / frames;
+      // 水面の高さ（%）。画面の下の外側から、上の外側まで動かす
+      const level = 100 + amplitude - t * (100 + amplitude * 2);
+      const phase = t * Math.PI * 4;
+      const surface = [];
+      for (let i = points; i >= 0; i--) {
+        const x = (i / points) * 100;
+        const y = level + amplitude * Math.sin((i / points) * Math.PI * 4 + phase);
+        surface.push(`${x}% ${y}%`);
+      }
+      keyframes.push({ clipPath: `polygon(0% 100%, 100% 100%, ${surface.join(", ")})` });
+    }
+    return keyframes;
+  }
+
+  button?.addEventListener("animationend", () => button.classList.remove("is-switching"));
+
+  button?.addEventListener("click", async () => {
+    if (!button) return;
+    const root = document.documentElement;
+    const next = root.dataset.theme === "light" ? "dark" : "light";
+
+    // ボタンの中のアイコンを、くるっと回しながら入れ替える
+    button.classList.remove("is-switching");
+    void button.offsetWidth; // クラスを付け直して、連打してもアニメーションを最初から再生する
+    button.classList.add("is-switching");
+
+    // View Transitions に対応していないブラウザや、動きを減らす設定の人には、すぐ切り替える
+    const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!document.startViewTransition || reduceMotion) {
+      applyTheme(next);
+      return;
+    }
+
+    // 新しいテーマの画面が、茶碗に注ぐように下から満ちていく
+    const transition = document.startViewTransition(() => applyTheme(next));
+    await transition.ready;
+    root.animate(fillKeyframes(), {
+      duration: 700,
+      easing: "ease-in-out",
+      pseudoElement: "::view-transition-new(root)",
+    });
   });
 </script>
