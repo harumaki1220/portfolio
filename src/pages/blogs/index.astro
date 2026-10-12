@@ -1,0 +1,32 @@
+---
+import { formatDate, getPosts } from "../../data/blog";
+import { url } from "../../data/pages";
+import { NAME } from "../../data/profile";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const posts = await getPosts();
+---
+
+<BaseLayout title={`Blogs | ${NAME}`}>
+  <h1 class="page-title">Blogs</h1>
+  {
+    posts.length === 0 ? (
+      <p class="placeholder">準備中です。</p>
+    ) : (
+      <ul class="posts">
+        {posts.map((post) => (
+          <li>
+            <a class="post-card" href={url(`blogs/${post.id}/`)}>
+              <div class="post-meta">
+                <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
+                {post.data.draft && <span class="draft-badge">下書き</span>}
+              </div>
+              <h2 class="post-title">{post.data.title}</h2>
+              <p class="post-description">{post.data.description}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</BaseLayout>

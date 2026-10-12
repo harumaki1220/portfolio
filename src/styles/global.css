@@ -411,3 +411,161 @@ body {
 :root[data-theme="light"] .theme-toggle-to-dark {
   display: block;
 }
+
+/* ---------- ブログ ---------- */
+
+.posts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+
+.post-card {
+  display: block;
+  padding: 16px 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.15s;
+}
+
+.post-card:hover {
+  border-color: var(--accent);
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 13px;
+}
+
+.draft-badge {
+  padding: 0 8px;
+  border-radius: 999px;
+  background: var(--main-soft);
+  color: var(--main);
+  font-family: var(--rounded);
+  font-size: 12px;
+}
+
+.post-title {
+  margin: 4px 0 0;
+  color: var(--fg-active);
+  font-family: var(--rounded);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.post-description {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.post-header {
+  display: grid;
+  gap: 8px;
+}
+
+.post-back {
+  color: var(--muted);
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.post-back:hover {
+  color: var(--accent);
+}
+
+/* 記事の本文。Markdown から作られた HTML の見た目 */
+.prose {
+  margin-top: 32px;
+  max-width: 720px;
+}
+
+.prose > :first-child {
+  margin-top: 0;
+}
+
+.prose h2,
+.prose h3 {
+  margin: 2em 0 0.5em;
+  color: var(--fg-active);
+  font-family: var(--rounded);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.prose h2 {
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--border);
+  font-size: 22px;
+}
+
+.prose h3 {
+  font-size: 18px;
+}
+
+.prose p,
+.prose ul,
+.prose ol,
+.prose blockquote,
+.prose pre {
+  margin: 1em 0;
+}
+
+.prose a {
+  color: var(--main);
+  text-underline-offset: 3px;
+}
+
+.prose a:hover {
+  color: var(--accent);
+}
+
+.prose blockquote {
+  padding-left: 16px;
+  border-left: 3px solid var(--border);
+  color: var(--muted);
+}
+
+.prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.prose :not(pre) > code {
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--main-soft);
+  font-family: var(--mono);
+  font-size: 0.9em;
+}
+
+.prose pre {
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.prose pre code {
+  font-family: var(--mono);
+}
+
+/* ダークのときは、Shiki が用意したダーク用の色に切り替える */
+:root:not([data-theme="light"]) .astro-code,
+:root:not([data-theme="light"]) .astro-code span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+}
