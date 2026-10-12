@@ -569,3 +569,35 @@ body {
   color: var(--shiki-dark) !important;
   background-color: var(--shiki-dark-bg) !important;
 }
+
+/* ---------- 404 ---------- */
+
+.not-found {
+  display: grid;
+  justify-items: start;
+  gap: 12px;
+}
+
+.not-found-code {
+  margin: 0;
+  color: var(--main);
+  font-family: var(--rounded);
+  font-size: clamp(4rem, 16vw, 6rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.not-found-link {
+  margin-top: 12px;
+  padding: 8px 20px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--fg);
+  text-decoration: none;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.not-found-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
