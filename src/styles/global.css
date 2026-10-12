@@ -344,10 +344,18 @@ body {
 }
 
 .work-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
   color: var(--fg);
   text-decoration: underline;
   text-decoration-color: var(--border);
   text-underline-offset: 4px;
+}
+
+.arrow-up-right {
+  width: 14px;
+  height: 14px;
 }
 
 .work-links a:hover {
@@ -380,7 +388,6 @@ body {
   border-radius: 999px;
   background: var(--bg);
   color: var(--fg);
-  font-size: 18px;
   cursor: pointer;
   transition: border-color 0.15s, color 0.15s;
 }
@@ -390,6 +397,11 @@ body {
   color: var(--accent);
 }
 
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+}
+
 /* 今のテーマと逆のアイコンだけ表示する */
 .theme-toggle-to-dark,
 :root[data-theme="light"] .theme-toggle-to-light {
@@ -397,5 +409,5 @@ body {
 }
 
 :root[data-theme="light"] .theme-toggle-to-dark {
-  display: inline;
+  display: block;
 }
