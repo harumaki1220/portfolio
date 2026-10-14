@@ -559,6 +559,37 @@ body {
   color: var(--accent);
 }
 
+.prose ul,
+.prose ol {
+  padding-left: 1.5em;
+}
+
+/* 入れ子のリストは、上下の余白を詰める */
+.prose li > ul,
+.prose li > ol {
+  margin: 0.25em 0;
+}
+
+.prose table {
+  display: block;
+  margin: 1em 0;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.prose th,
+.prose td {
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+
+.prose th {
+  background: var(--main-soft);
+  color: var(--fg-active);
+}
+
 .prose blockquote {
   padding-left: 16px;
   border-left: 3px solid var(--border);
