@@ -1,9 +1,9 @@
 ---
-import { render } from "astro:content";
-import { formatDate, getPosts } from "../../data/blog";
-import { url } from "../../data/pages";
-import { NAME } from "../../data/profile";
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import { render } from 'astro:content';
+import { formatDate, getPosts } from '../../data/blog';
+import { url } from '../../data/pages';
+import { NAME } from '../../data/profile';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
 // ビルドのときに1回だけ動いて、記事の数だけページを作る
 export async function getStaticPaths() {
@@ -18,10 +18,14 @@ const { Content } = await render(post);
 <BaseLayout title={`${post.data.title} | ${NAME}`}>
   <article class="post">
     <header class="post-header">
-      <a class="post-back" href={url("blogs/")}>← Blogs</a>
+      <a class="post-back" href={url('blogs/')}>
+        ← Blogs
+      </a>
       <h1 class="page-title">{post.data.title}</h1>
       <div class="post-meta">
-        <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
+        <time datetime={post.data.date.toISOString()}>
+          {formatDate(post.data.date)}
+        </time>
         {post.data.draft && <span class="draft-badge">下書き</span>}
       </div>
     </header>

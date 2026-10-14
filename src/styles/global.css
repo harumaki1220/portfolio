@@ -12,12 +12,12 @@
   --accent: #d98a8f;
   --surface: #222a1d;
   --content-width: 960px;
-  --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
-  --rounded: "Zen Maru Gothic", system-ui, sans-serif;
+  --mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  --rounded: 'Zen Maru Gothic', system-ui, sans-serif;
   color-scheme: dark;
 }
 
-:root[data-theme="light"] {
+:root[data-theme='light'] {
   --bg: #fffff0;
   --fg: #5b4637;
   --fg-active: #3d2e23;
@@ -40,7 +40,13 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--fg);
-  font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    'Hiragino Sans',
+    'Noto Sans JP',
+    sans-serif;
 }
 
 .site-header {
@@ -70,14 +76,16 @@ body {
   font-size: 15px;
   font-weight: 700;
   text-decoration: none;
-  transition: color 0.15s, background-color 0.15s;
+  transition:
+    color 0.15s,
+    background-color 0.15s;
 }
 
 .site-nav a:hover {
   color: var(--fg-active);
 }
 
-.site-nav a[aria-current="page"] {
+.site-nav a[aria-current='page'] {
   background: var(--main-soft);
   color: var(--main);
 }
@@ -266,7 +274,9 @@ body {
   border-radius: 999px;
   color: var(--fg);
   text-decoration: none;
-  transition: border-color 0.15s, color 0.15s;
+  transition:
+    border-color 0.15s,
+    color 0.15s;
 }
 
 .home-links a:hover {
@@ -389,7 +399,9 @@ body {
   background: var(--bg);
   color: var(--fg);
   cursor: pointer;
-  transition: border-color 0.15s, color 0.15s;
+  transition:
+    border-color 0.15s,
+    color 0.15s;
 }
 
 .theme-toggle:hover {
@@ -421,11 +433,11 @@ body {
 
 /* 今のテーマと逆のアイコンだけ表示する */
 .theme-toggle-to-dark,
-:root[data-theme="light"] .theme-toggle-to-light {
+:root[data-theme='light'] .theme-toggle-to-light {
   display: none;
 }
 
-:root[data-theme="light"] .theme-toggle-to-dark {
+:root[data-theme='light'] .theme-toggle-to-dark {
   display: block;
 }
 
@@ -581,8 +593,8 @@ body {
 }
 
 /* ダークのときは、Shiki が用意したダーク用の色に切り替える */
-:root:not([data-theme="light"]) .astro-code,
-:root:not([data-theme="light"]) .astro-code span {
+:root:not([data-theme='light']) .astro-code,
+:root:not([data-theme='light']) .astro-code span {
   color: var(--shiki-dark) !important;
   background-color: var(--shiki-dark-bg) !important;
 }
@@ -611,7 +623,9 @@ body {
   border-radius: 999px;
   color: var(--fg);
   text-decoration: none;
-  transition: border-color 0.15s, color 0.15s;
+  transition:
+    border-color 0.15s,
+    color 0.15s;
 }
 
 .not-found-link:hover {

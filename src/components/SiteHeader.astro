@@ -1,27 +1,28 @@
 ---
 // 全ページ共通の上のバー。ページへのリンクとテーマ切り替え
-import { PAGES, url } from "../data/pages";
-import ThemeToggle from "./ThemeToggle.astro";
+import { PAGES, url } from '../data/pages';
+import ThemeToggle from './ThemeToggle.astro';
 
-const trim = (path: string) => path.replace(/\/$/, "");
+const trim = (path: string) => path.replace(/\/$/, '');
 const current = trim(Astro.url.pathname);
 ---
 
 <header class="site-header">
   <nav>
     <ul class="site-nav">
-      {
-        PAGES.map((page) => {
-          const href = url(page.path);
-          return (
-            <li>
-              <a href={href} aria-current={trim(href) === current ? "page" : undefined}>
-                {page.label}
-              </a>
-            </li>
-          );
-        })
-      }
+      {PAGES.map((page) => {
+        const href = url(page.path);
+        return (
+          <li>
+            <a
+              href={href}
+              aria-current={trim(href) === current ? 'page' : undefined}
+            >
+              {page.label}
+            </a>
+          </li>
+        );
+      })}
     </ul>
   </nav>
   <ThemeToggle />

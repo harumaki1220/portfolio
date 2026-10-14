@@ -11,9 +11,7 @@
     },
     "preset-ja-spacing": {
       "ja-space-between-half-and-full-width": {
-        "space": [
-          "alphabets"
-        ]
+        "space": ["alphabets"]
       },
       "ja-space-around-code": {
         "before": true,
@@ -25,9 +23,7 @@
       }
     },
     "prh": {
-      "rulePaths": [
-        "./node_modules/textlint-rule-preset-icsmedia/dict/prh.yml"
-      ]
+      "rulePaths": ["./node_modules/textlint-rule-preset-icsmedia/dict/prh.yml"]
     }
   }
 }

@@ -1,8 +1,15 @@
 ---
-import BrandIcon from "../components/BrandIcon.astro";
-import Skills from "../components/Skills.astro";
-import { ABOUT, ICON_CREDIT, ICON_URL, LIKES, LINKS, NAME } from "../data/profile";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BrandIcon from '../components/BrandIcon.astro';
+import Skills from '../components/Skills.astro';
+import {
+  ABOUT,
+  ICON_CREDIT,
+  ICON_URL,
+  LIKES,
+  LINKS,
+  NAME,
+} from '../data/profile';
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title={NAME}>
@@ -14,7 +21,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   <section>
     <h2 class="home-heading">About</h2>
     <div class="about-text">
-      {ABOUT.map((paragraph) => <p>{paragraph}</p>)}
+      {ABOUT.map((paragraph) => (
+        <p>{paragraph}</p>
+      ))}
     </div>
   </section>
 
@@ -26,31 +35,33 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   <section>
     <h2 class="home-heading">Likes</h2>
     <ul class="likes">
-      {LIKES.map((like) => <li>{like}</li>)}
+      {LIKES.map((like) => (
+        <li>{like}</li>
+      ))}
     </ul>
   </section>
 
   <section>
     <h2 class="home-heading">Links</h2>
     <ul class="home-links">
-      {
-        LINKS.map((link) => (
-          <li>
-            <a href={link.href} target="_blank" rel="noopener noreferrer">
-              <BrandIcon icon={link.icon} />
-              {link.label}
-            </a>
-          </li>
-        ))
-      }
+      {LINKS.map((link) => (
+        <li>
+          <a href={link.href} target="_blank" rel="noopener noreferrer">
+            <BrandIcon icon={link.icon} />
+            {link.label}
+          </a>
+        </li>
+      ))}
     </ul>
   </section>
 
   <footer class="home-credit">
     <p>
-      Icon by <a href={ICON_CREDIT.href} target="_blank" rel="noopener noreferrer">
+      Icon by{' '}
+      <a href={ICON_CREDIT.href} target="_blank" rel="noopener noreferrer">
         {ICON_CREDIT.label}
-      </a> 🎨
+      </a>{' '}
+      🎨
     </p>
   </footer>
 </BaseLayout>

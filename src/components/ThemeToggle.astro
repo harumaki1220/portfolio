@@ -4,7 +4,11 @@
 // アイコンの形は Lucide（ISC ライセンス）の sun / moon から
 ---
 
-<button class="theme-toggle" type="button" aria-label="ダーク / ライトを切り替え">
+<button
+  class="theme-toggle"
+  type="button"
+  aria-label="ダーク / ライトを切り替え"
+>
   <svg
     class="theme-toggle-to-light"
     viewBox="0 0 24 24"
@@ -16,9 +20,7 @@
     aria-hidden="true"
   >
     <circle cx="12" cy="12" r="4"></circle>
-    <path
-      d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
-    ></path>
+    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
   </svg>
   <svg
     class="theme-toggle-to-dark"
@@ -35,13 +37,13 @@
 </button>
 
 <script>
-  const button = document.querySelector<HTMLButtonElement>(".theme-toggle");
+  const button = document.querySelector<HTMLButtonElement>('.theme-toggle');
 
-  function applyTheme(next: "light" | "dark") {
+  function applyTheme(next: 'light' | 'dark') {
     document.documentElement.dataset.theme = next;
     // プライベートモードなどで保存できなくても、切り替え自体はできるので無視する
     try {
-      localStorage.setItem("theme", next);
+      localStorage.setItem('theme', next);
     } catch {}
   }
 
@@ -49,7 +51,11 @@
    * 下から上へ満ちていく clip-path のキーフレームを作る。
    * 水面（上の境目）を波打たせて、少しずつ横に流すことで液体っぽく見せる
    */
-  function fillKeyframes(frames = 30, points = 24, amplitude = 1.5): Keyframe[] {
+  function fillKeyframes(
+    frames = 30,
+    points = 24,
+    amplitude = 1.5,
+  ): Keyframe[] {
     const keyframes: Keyframe[] = [];
     for (let f = 0; f <= frames; f++) {
       const t = f / frames;
@@ -59,28 +65,33 @@
       const surface = [];
       for (let i = points; i >= 0; i--) {
         const x = (i / points) * 100;
-        const y = level + amplitude * Math.sin((i / points) * Math.PI * 4 + phase);
+        const y =
+          level + amplitude * Math.sin((i / points) * Math.PI * 4 + phase);
         surface.push(`${x}% ${y}%`);
       }
-      keyframes.push({ clipPath: `polygon(0% 100%, 100% 100%, ${surface.join(", ")})` });
+      keyframes.push({
+        clipPath: `polygon(0% 100%, 100% 100%, ${surface.join(', ')})`,
+      });
     }
     return keyframes;
   }
 
-  button?.addEventListener("animationend", () => button.classList.remove("is-switching"));
+  button?.addEventListener('animationend', () =>
+    button.classList.remove('is-switching'),
+  );
 
-  button?.addEventListener("click", async () => {
+  button?.addEventListener('click', async () => {
     if (!button) return;
     const root = document.documentElement;
-    const next = root.dataset.theme === "light" ? "dark" : "light";
+    const next = root.dataset.theme === 'light' ? 'dark' : 'light';
 
     // ボタンの中のアイコンを、くるっと回しながら入れ替える
-    button.classList.remove("is-switching");
+    button.classList.remove('is-switching');
     void button.offsetWidth; // クラスを付け直して、連打してもアニメーションを最初から再生する
-    button.classList.add("is-switching");
+    button.classList.add('is-switching');
 
     // View Transitions に対応していないブラウザや、動きを減らす設定の人には、すぐ切り替える
-    const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!document.startViewTransition || reduceMotion) {
       applyTheme(next);
       return;
@@ -91,8 +102,8 @@
     await transition.ready;
     root.animate(fillKeyframes(), {
       duration: 700,
-      easing: "ease-in-out",
-      pseudoElement: "::view-transition-new(root)",
+      easing: 'ease-in-out',
+      pseudoElement: '::view-transition-new(root)',
     });
   });
 </script>

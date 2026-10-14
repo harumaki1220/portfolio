@@ -8,6 +8,8 @@ interface Props {
 const { items, main = false } = Astro.props;
 ---
 
-<ul class:list={["chips", { "chips-main": main }]}>
-  {items.map((item) => <li class="chip">{item}</li>)}
+<ul class:list={['chips', { 'chips-main': main }]}>
+  {items.map((item) => (
+    <li class="chip">{item}</li>
+  ))}
 </ul>

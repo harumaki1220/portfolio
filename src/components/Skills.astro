@@ -1,33 +1,31 @@
 ---
-import { SKILLS } from "../data/profile";
-import Chips from "./Chips.astro";
+import { SKILLS } from '../data/profile';
+import Chips from './Chips.astro';
 ---
 
 <div class="skills">
-  {
-    SKILLS.map((category) => (
-      <div class="skill-category">
-        <h3 class="skill-category-name">{category.name}</h3>
-        {category.others.length === 0 ? (
-          // 分ける意味がない分類は、ラベルなしで1行に並べる
-          <Chips items={category.main} />
-        ) : (
-          <dl>
-            <div class="skill-group">
-              <dt>Main</dt>
-              <dd>
-                <Chips items={category.main} main />
-              </dd>
-            </div>
-            <div class="skill-group">
-              <dt>Others</dt>
-              <dd>
-                <Chips items={category.others} />
-              </dd>
-            </div>
-          </dl>
-        )}
-      </div>
-    ))
-  }
+  {SKILLS.map((category) => (
+    <div class="skill-category">
+      <h3 class="skill-category-name">{category.name}</h3>
+      {category.others.length === 0 ? (
+        // 分ける意味がない分類は、ラベルなしで1行に並べる
+        <Chips items={category.main} />
+      ) : (
+        <dl>
+          <div class="skill-group">
+            <dt>Main</dt>
+            <dd>
+              <Chips items={category.main} main />
+            </dd>
+          </div>
+          <div class="skill-group">
+            <dt>Others</dt>
+            <dd>
+              <Chips items={category.others} />
+            </dd>
+          </div>
+        </dl>
+      )}
+    </div>
+  ))}
 </div>

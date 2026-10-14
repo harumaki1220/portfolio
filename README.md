@@ -17,13 +17,13 @@ pnpm install
 pnpm dev
 ```
 
-| コマンド | 内容 |
-| --- | --- |
-| `pnpm dev` | 開発サーバーを起動する |
-| `pnpm build` | `dist/` にサイトを書き出す |
-| `pnpm preview` | 書き出したサイトを手元で確認する |
-| `pnpm lint:text` | README とブログの記事の文章をチェックする |
-| `pnpm lint:text:fix` | 自動で直せるものを直す |
+| コマンド             | 内容                                      |
+| -------------------- | ----------------------------------------- |
+| `pnpm dev`           | 開発サーバーを起動する                    |
+| `pnpm build`         | `dist/` にサイトを書き出す                |
+| `pnpm preview`       | 書き出したサイトを手元で確認する          |
+| `pnpm lint:text`     | README とブログの記事の文章をチェックする |
+| `pnpm lint:text:fix` | 自動で直せるものを直す                    |
 
 ## ブログの記事
 
