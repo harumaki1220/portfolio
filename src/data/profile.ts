@@ -34,8 +34,8 @@ export const SKILLS: SkillCategory[] = [
 
 /** 自己紹介。1要素が1段落になる */
 export const ABOUT = [
-  '情報系の大学2年生です。普段はWebフロントエンドを書きつつ、CLIツールやブラウザ拡張など、作りたくなったものを作っています。',
-  '難しいと聞くと触りたくなる性格で、最近はRustにハマっています。',
+  '情報系の大学2年生です。普段は Web フロントエンドを書きつつ、CLI ツールやブラウザ拡張など、作りたくなったものを作っています。',
+  '難しいと聞くと触りたくなる性格で、最近は Rust にハマっています。',
   '名前の由来は抹茶が好きだから🍵',
 ];
 
@@ -71,7 +71,7 @@ export const WORKS: Work[] = [
     name: 'minesweeper',
     date: '2025.05',
     description:
-      'オセロの次に、TypeScriptのサークルで作ったマインスイーパーです。再帰関数で空白のマスを一気に開く処理を学びました。',
+      'オセロの次に、TypeScript のサークルで作ったマインスイーパーです。再帰関数で空白のマスを一気に開く処理を学びました。',
     tech: ['TypeScript', 'React', 'Next.js'],
     links: [
       { label: 'Demo', href: 'https://harumaki1220.github.io/minesweeper/' },
@@ -82,7 +82,7 @@ export const WORKS: Work[] = [
     name: 'othello',
     date: '2025.04',
     description:
-      '初めての開発。TypeScriptのサークルで作ったオセロです。useStateで盤面の状態を管理することを学びました。',
+      '初めての開発。TypeScript のサークルで作ったオセロです。useState で盤面の状態を管理することを学びました。',
     tech: ['TypeScript', 'React', 'Next.js'],
     links: [
       { label: 'Demo', href: 'https://harumaki1220.github.io/othello/' },
