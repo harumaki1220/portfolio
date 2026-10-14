@@ -5,13 +5,38 @@
   "rules": {
     "preset-ja-technical-writing": {
       "ja-no-mixed-period": {
-        "allowEmojiAtEnd": true
+        "allowEmojiAtEnd": true,
+        "allowPeriodMarks": ["…", ".", "。", "w", "ｗ", "W", "Ｗ"]
       },
-      "no-exclamation-question-mark": false
+      "no-exclamation-question-mark": false,
+      "ja-unnatural-alphabet": {
+        "allow": ["a", "i", "u", "e", "o", "n", "/[A-Z]/", "/[WwＷｗ]+/$"],
+        "allowCommonCase": true
+      },
+      "ja-no-successive-word": {
+        "allow": [
+          "・",
+          "！",
+          "!",
+          "？",
+          "?",
+          "…",
+          "○",
+          "◯",
+          "w",
+          "ｗ",
+          "W",
+          "Ｗ"
+        ]
+      },
+      "no-doubled-joshi": {
+        "allow": ["も", "や"]
+      }
     },
     "preset-ja-spacing": {
       "ja-space-between-half-and-full-width": {
-        "space": ["alphabets"]
+        "space": ["alphabets"],
+        "allows": ["/.[WwＷｗ]+$/m"]
       },
       "ja-space-around-code": {
         "before": true,
