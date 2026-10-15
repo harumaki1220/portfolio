@@ -99,7 +99,7 @@ export const LINKS: { icon: Icon; label: string; href: string }[] = [
 ];
 
 /** GitHub のアイコンをそのまま表示する */
-export const ICON_URL = 'https://github.com/harumaki1220.png?size=256';
+export const ICON_URL = 'https://avatars.githubusercontent.com/u/122547414?s=192&v=4';
 
 /** アイコンを描いてくれた人 */
 export const ICON_CREDIT = {
