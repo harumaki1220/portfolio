@@ -23,8 +23,9 @@
   --fg-active: #3d2e23;
   --muted: #7d6e5c;
   --border: #cfe3c4;
-  --main: #52803e;
-  --main-soft: rgba(82, 128, 62, 0.12);
+  /* 薄い背景の上に置いても読みやすさの基準（4.5 : 1）を満たす濃さ */
+  --main: #477234;
+  --main-soft: rgba(71, 114, 52, 0.12);
   --accent: #96424c;
   --surface: #fbfdf1;
   color-scheme: light;
