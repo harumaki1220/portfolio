@@ -9,4 +9,8 @@ export default defineConfig({
       themes: { light: 'github-light', dark: 'github-dark' },
     },
   },
+  experimental: {
+    // 記事のフロントマターを VS Code で補完・チェックできるようにする（.vscode/settings.json と合わせて使う）
+    contentIntellisense: true,
+  },
 });
