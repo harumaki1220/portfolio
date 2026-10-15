@@ -35,12 +35,15 @@ title: 記事のタイトル
 description: 一覧に出る一言
 date: 2026-10-14
 draft: true
+tags: [GitHub, Git]
 ---
 
 本文
 ```
 
 `draft: true` の記事は `pnpm dev` のときだけ表示され、公開されるサイトには出ません。
+
+`tags` で使えるのは、`src/data/tags.ts` の一覧にあるタグだけです。新しいタグを使うときは、まず一覧に足します。
 
 書いたら `pnpm lint:text` で文章をチェックします。ルールは `.textlintrc.json` にあります。
 

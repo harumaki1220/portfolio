@@ -3,6 +3,7 @@ title: Markdown の書き方の見本
 description: 記事の書き方と、実際の見え方をまとめた見本です。公開しません。
 date: 2026-01-01
 draft: true
+tags: [Markdown]
 ---
 
 この記事は書き方の見本です。`draft: true` なので、`pnpm dev` のときだけ表示されます。各項目は「書き方」のあとに「表示」を並べています。
@@ -17,12 +18,15 @@ title: 記事のタイトル
 description: 一覧に出る一言
 date: 2026-10-14
 draft: true
+tags: [GitHub, Git]
 ---
 ```
 
 - `title` は記事の見出し、一覧、ブラウザのタブに出る
 - `description` は一覧でタイトルの下に出る
 - `draft: true` の間は公開されない
+- `tags` は一覧と記事にタグとして出る（書かなくてもいい）
+- `tags` で使えるのは `src/data/tags.ts` の一覧にあるタグだけ。新しいタグはまず一覧に足す
 
 記事のタイトルは `title` が自動で出すので、本文に `# タイトル` は書きません。本文の見出しは `##` から始めます。
 
