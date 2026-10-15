@@ -492,6 +492,10 @@ body {
   font-weight: 700;
 }
 
+.post-card .chips {
+  margin-top: 12px;
+}
+
 .post-description {
   margin: 4px 0 0;
   color: var(--muted);

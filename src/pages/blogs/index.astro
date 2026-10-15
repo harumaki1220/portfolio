@@ -1,4 +1,5 @@
 ---
+import Chips from '../../components/Chips.astro';
 import { formatDate, getPosts } from '../../data/blog';
 import { url } from '../../data/pages';
 import { NAME } from '../../data/profile';
@@ -24,6 +25,7 @@ const posts = await getPosts();
             </div>
             <h2 class="post-title">{post.data.title}</h2>
             <p class="post-description">{post.data.description}</p>
+            {post.data.tags.length > 0 && <Chips items={post.data.tags} />}
           </a>
         </li>
       ))}

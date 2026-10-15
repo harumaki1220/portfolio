@@ -1,5 +1,6 @@
 ---
 import { render } from 'astro:content';
+import Chips from '../../components/Chips.astro';
 import { formatDate, getPosts } from '../../data/blog';
 import { url } from '../../data/pages';
 import { NAME } from '../../data/profile';
@@ -28,6 +29,7 @@ const { Content } = await render(post);
         </time>
         {post.data.draft && <span class="draft-badge">下書き</span>}
       </div>
+      {post.data.tags.length > 0 && <Chips items={post.data.tags} />}
     </header>
     <div class="prose">
       <Content />
