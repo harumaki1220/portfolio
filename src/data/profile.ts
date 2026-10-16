@@ -1,5 +1,9 @@
 export const NAME = 'まっちゃ';
 
+/** 検索結果や SNS のカードに出る、サイトの説明。ページごとに指定がないときに使う */
+export const SITE_DESCRIPTION =
+  '情報系の大学生、まっちゃのポートフォリオ。作ったものやブログを載せています。';
+
 export type SkillCategory = {
   name: string;
   main: string[];

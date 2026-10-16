@@ -1,12 +1,20 @@
 ---
 import SiteHeader from '../components/SiteHeader.astro';
+import { ICON_URL, NAME, SITE_DESCRIPTION } from '../data/profile';
 import '../styles/global.css';
 
 interface Props {
   title: string;
+  /** 検索結果や SNS のカードに出る説明。なければサイト全体の説明を使う */
+  description?: string;
+  /** ブログの記事は article、それ以外は website */
+  type?: 'website' | 'article';
 }
 
-const { title } = Astro.props;
+const { title, description = SITE_DESCRIPTION, type = 'website' } = Astro.props;
+
+// SNS のカードや canonical には、https:// から始まる完全な URL が必要
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
 ---
 
 <!doctype html>
@@ -15,6 +23,17 @@ const { title } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ICON_URL} />
+    <meta property="og:site_name" content={NAME} />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary" />
     <script is:inline>
       // ページが表示される前にテーマを決めて、一瞬違う色で表示されるのを防ぐ
       (() => {

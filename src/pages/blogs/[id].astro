@@ -16,7 +16,11 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<BaseLayout title={`${post.data.title} | ${NAME}`}>
+<BaseLayout
+  title={`${post.data.title} | ${NAME}`}
+  description={post.data.description}
+  type="article"
+>
   <article class="post">
     <header class="post-header">
       <a class="post-back" href={url('blogs/')}>
