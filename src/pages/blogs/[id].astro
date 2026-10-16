@@ -36,3 +36,20 @@ const { Content } = await render(post);
     </div>
   </article>
 </BaseLayout>
+
+<style>
+  .post-header {
+    display: grid;
+    gap: 8px;
+  }
+
+  .post-back {
+    color: var(--muted);
+    font-size: 14px;
+    text-decoration: none;
+  }
+
+  .post-back:hover {
+    color: var(--accent);
+  }
+</style>

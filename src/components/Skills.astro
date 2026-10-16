@@ -29,3 +29,47 @@ import Chips from './Chips.astro';
     </div>
   ))}
 </div>
+
+<style>
+  .skills {
+    display: grid;
+    gap: 20px;
+    font-size: 14px;
+  }
+
+  .skill-category-name {
+    margin: 0 0 8px;
+    color: var(--fg-active);
+    font-family: var(--rounded);
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .skill-category dl {
+    margin: 0;
+    display: grid;
+    gap: 8px;
+  }
+
+  .skill-group {
+    display: grid;
+    grid-template-columns: 6em 1fr;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .skill-group dt {
+    color: var(--muted);
+  }
+
+  .skill-group dd {
+    margin: 0;
+  }
+
+  @media (max-width: 480px) {
+    .skill-group {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+  }
+</style>

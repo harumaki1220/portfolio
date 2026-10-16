@@ -27,3 +27,46 @@ const current = trim(Astro.url.pathname);
   </nav>
   <ThemeToggle />
 </header>
+
+<style>
+  .site-header {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .site-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 4px;
+  }
+
+  .site-nav a {
+    display: block;
+    padding: 6px 14px;
+    border-radius: 999px;
+    color: var(--muted);
+    font-family: var(--rounded);
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition:
+      color 0.15s,
+      background-color 0.15s;
+  }
+
+  .site-nav a:hover {
+    color: var(--fg-active);
+  }
+
+  .site-nav a[aria-current='page'] {
+    background: var(--main-soft);
+    color: var(--main);
+  }
+</style>
