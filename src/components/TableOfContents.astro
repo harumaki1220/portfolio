@@ -1,0 +1,44 @@
+---
+// 記事の目次。## と ### の見出しだけを並べる
+import type { MarkdownHeading } from 'astro';
+
+interface Props {
+  headings: MarkdownHeading[];
+}
+
+const { headings } = Astro.props;
+---
+
+<ol class="toc-list">
+  {headings.map((heading) => (
+    <li class:list={['toc-item', { 'toc-item-sub': heading.depth === 3 }]}>
+      <a href={`#${heading.slug}`}>{heading.text}</a>
+    </li>
+  ))}
+</ol>
+
+<style>
+  .toc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 6px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .toc-item-sub {
+    padding-left: 1em;
+    font-size: 13px;
+  }
+
+  .toc-item a {
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  .toc-item a:hover {
+    color: var(--accent);
+  }
+</style>
