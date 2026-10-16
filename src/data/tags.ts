@@ -10,6 +10,11 @@ export const TAGS = [
   'Markdown',
   'Rust',
   'TypeScript',
+  'CSR',
+  'SSR',
+  'SSG',
+  'SEO',
+  'OGP',
 ] as const;
 
 export type Tag = (typeof TAGS)[number];
