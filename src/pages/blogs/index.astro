@@ -42,8 +42,24 @@ const posts = await getPosts();
     gap: 16px;
   }
 
+  /* 画面が広いほど列を増やす（スマホ 1 列 → タブレット 2 列 → パソコン 3 列） */
+  @media (min-width: 640px) {
+    .posts {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 960px) {
+    .posts {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
   .post-card {
-    display: block;
+    /* 同じ行のカードの高さをそろえて、タグをカードの下に寄せる */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     padding: 16px 20px;
     border: 1px solid var(--border);
     border-radius: 12px;
@@ -63,11 +79,14 @@ const posts = await getPosts();
     font-family: var(--rounded);
     font-size: 18px;
     font-weight: 700;
+    /* 3 列だとタイトルが折り返しやすいので、行の間を詰める */
+    line-height: 1.5;
   }
 
   /* タグは Chips の部品の中なので、:global で指定する */
   .post-card :global(.chips) {
-    margin-top: 12px;
+    margin-top: auto;
+    padding-top: 12px;
   }
 
   .post-description {
