@@ -2,7 +2,7 @@ export const NAME = 'まっちゃ';
 
 /** 検索結果や SNS のカードに出る、サイトの説明。ページごとに指定がないときに使う */
 export const SITE_DESCRIPTION =
-  '情報系の大学生、まっちゃのポートフォリオ。作ったものやブログを載せています。';
+  'まっちゃのポートフォリオ。作ったものやブログを載せています。';
 
 export type SkillCategory = {
   name: string;
@@ -62,6 +62,16 @@ export type Work = {
 
 /** 新しい順に並べる */
 export const WORKS: Work[] = [
+  {
+    name: 'sidels',
+    date: '2026.10',
+    description:
+      'いつものシェルの横に、今いるディレクトリのファイル一覧と Git の状態を出しておくターミナルツールです。打っている途中のコマンドにも反応して、cd の移動先や rm で消えるファイルを先に見せます。',
+    tech: ['Rust', 'ratatui'],
+    links: [
+      { label: 'Source', href: 'https://github.com/harumaki1220/sidels' },
+    ],
+  },
   {
     name: 'portfolio',
     date: '2026.10',
