@@ -12,7 +12,7 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
-    "astro": "^7.3.8"
+    "astro": "^7.4.2"
   },
   "packageManager": "pnpm@10.33.0",
   "devDependencies": {
